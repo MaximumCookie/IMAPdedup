@@ -180,13 +180,23 @@ def main():
             print "There are %d messages in %s." % (int(msgs), mbox)
             
             # Check how many messages are already marked 'deleted'...
-            deleted = check_response(server.search(None, 'DELETED'))[0].split()
+            deleted = check_response(server.search(None, 'DELETED'))[0]
+            if (not deleted is None) :
+                deleted = deleted.split()
+                numdeleted = len(deleted)
+            else :
+                numdeleted = 0
             numdeleted = len(deleted)
             print "%s message(s) currently marked as deleted in %s" % (numdeleted or "No", mbox)
 
             # ...and get a list of the ones that aren't deleted. That's what we'll use.
-            msgnums = check_response(server.search(None, 'UNDELETED'))[0].split()
-            print len(msgnums), "others in", mbox
+            msgnums = check_response(server.search(None, 'UNDELETED'))[0]
+            if (not msgnums is None) :
+                msgnums = msgnums.split()
+                nummsgnums = len(msgnums)
+            else :
+                nummsgnums = 0
+            print nummsgnums, "others in", mbox
 
             if options.verbose: print "Reading the others..."
             for mnum in msgnums:
