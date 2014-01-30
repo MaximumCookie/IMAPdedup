@@ -194,6 +194,7 @@ def main():
                 msgnums = msgnums.split()
                 nummsgnums = len(msgnums)
             else :
+                msgnums = []
                 nummsgnums = 0
             print nummsgnums, "others in", mbox
 
