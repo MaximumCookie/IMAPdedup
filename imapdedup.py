@@ -186,7 +186,6 @@ def main():
                 numdeleted = len(deleted)
             else :
                 numdeleted = 0
-            numdeleted = len(deleted)
             print "%s message(s) currently marked as deleted in %s" % (numdeleted or "No", mbox)
 
             # ...and get a list of the ones that aren't deleted. That's what we'll use.
